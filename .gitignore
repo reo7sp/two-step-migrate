@@ -2,4 +2,5 @@
 .idea
 .DS_Store*
 vendor
+two-step-migrate*
 migrations
