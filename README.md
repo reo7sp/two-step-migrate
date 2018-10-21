@@ -2,7 +2,7 @@
 
 SQL migration tool.
 
-(Currently supports only PostgreSQL)
+![screenshot](doc/screenshot.png)
 
 This is tool is adapted for seamless deployments of backend code. Each migration has two steps: _half_ and _total_.
 
@@ -45,3 +45,10 @@ Available commands:
 
 Required environment variables:
 - `DATABASE_URL` — DSN to the sql database.
+
+
+<br>
+
+## Caveats
+
+Currently supports only PostgreSQL.
