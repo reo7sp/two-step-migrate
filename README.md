@@ -2,7 +2,7 @@
 
 SQL migration tool.
 
-![screenshot](doc/screenshot.png)
+![screenshot](doc/screenshot1.png)
 
 This is tool is adapted for seamless deployments of backend code. Each migration has two steps: _half_ and _total_.
 
