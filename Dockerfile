@@ -15,7 +15,7 @@ RUN go build
 
 FROM alpine
 
-COPY --from=builder /go/src/github.com/reo7sp/two-step-migrate/two-step-migrate /usr/bin/two-step-migrate
+WORKDIR /usr/bin
+COPY --from=builder /go/src/github.com/reo7sp/two-step-migrate/two-step-migrate two-step-migrate
 
-ENTRYPOINT ["/usr/bin/two-step-migrate"]
-CMD ["--help"]
+CMD two-step-migrate --help
