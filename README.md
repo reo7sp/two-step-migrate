@@ -17,6 +17,10 @@ _Total migration_ is backward-not-compatible database migration.
 
 The compiled binaries exist under the releases tab: https://github.com/reo7sp/two-step-migrate/releases
 
+## Using docker
+
+Use [reo7sp/two-step-migrate](https://hub.docker.com/r/reo7sp/two-step-migrate/) docker image.
+
 ## Using go
 
 ```sh
