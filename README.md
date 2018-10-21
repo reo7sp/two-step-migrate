@@ -11,24 +11,28 @@ _Half migration_ is backward-compatible database migration, which allows to work
 _Total migration_ is backward-not-compatible database migration.
 
 
-# Installation
+<br>
 
-## Using precompiled binaries
+## Installation
+
+### Using precompiled binaries
 
 The compiled binaries exist under the releases tab: https://github.com/reo7sp/two-step-migrate/releases
 
-## Using docker
+### Using docker
 
 Use [reo7sp/two-step-migrate](https://hub.docker.com/r/reo7sp/two-step-migrate/) docker image.
 
-## Using go
+### Using go
 
 ```sh
 go get github.com/reo7sp/two-step-migrate
 ```
 
 
-# Usage
+<br>
+
+## Usage
 
 ```sh
 two-step-migrate [command]
