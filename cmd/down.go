@@ -2,9 +2,10 @@ package cmd
 
 import (
 	"database/sql"
+	"fmt"
 	"github.com/fatih/color"
 	_ "github.com/lib/pq"
-	"fmt"
+	"github.com/reo7sp/two-step-migrate/cfg"
 	"github.com/reo7sp/two-step-migrate/migrationapplier"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -14,10 +15,12 @@ import (
 )
 
 var downCmd = &cobra.Command{
-	Use:   "down",
+	Use:     "down",
 	Aliases: []string{"d"},
-	Short: "Rollback migration",
+	Short:   "Rollback migration",
 	Run: func(cmd *cobra.Command, args []string) {
+		cfg.ParseDatabaseUrl()
+
 		db, err := sql.Open("postgres", viper.GetString("database_url"))
 		if err != nil {
 			log.Fatal(err)
@@ -44,8 +47,8 @@ var downCmd = &cobra.Command{
 
 		questions := []*survey.Question{
 			{
-				Name:     "names",
-				Prompt:   &survey.MultiSelect{
+				Name: "names",
+				Prompt: &survey.MultiSelect{
 					Message: "Select migrations to rollback:",
 					Options: migrationNamesForSurvey,
 				},

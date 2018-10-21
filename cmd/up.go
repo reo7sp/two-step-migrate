@@ -2,9 +2,10 @@ package cmd
 
 import (
 	"database/sql"
+	"fmt"
 	"github.com/fatih/color"
 	_ "github.com/lib/pq"
-	"fmt"
+	"github.com/reo7sp/two-step-migrate/cfg"
 	"github.com/reo7sp/two-step-migrate/migrationapplier"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -14,10 +15,12 @@ import (
 )
 
 var upCmd = &cobra.Command{
-	Use:   "up",
+	Use:     "up",
 	Aliases: []string{"u"},
-	Short: "Apply migration",
+	Short:   "Apply migration",
 	Run: func(cmd *cobra.Command, args []string) {
+		cfg.ParseDatabaseUrl()
+
 		db, err := sql.Open("postgres", viper.GetString("database_url"))
 		if err != nil {
 			log.Fatal(err)
@@ -44,8 +47,8 @@ var upCmd = &cobra.Command{
 
 		questions := []*survey.Question{
 			{
-				Name:     "names",
-				Prompt:   &survey.MultiSelect{
+				Name: "names",
+				Prompt: &survey.MultiSelect{
 					Message: "Select migrations to apply:",
 					Options: migrationNamesForSurvey,
 				},
